@@ -4,6 +4,7 @@ import { Info } from "./InfoComp";
 import { Plan } from "./PlanComp";
 import { AddOns } from "./AddOnsComp";
 import { Summary } from "./SummaryComp";
+import { Thank } from "./ThanksComp";
 
 export const MultiStepForm = () => {
   const [pgNum, setPgnum] = useState(1);
@@ -44,7 +45,7 @@ export const MultiStepForm = () => {
                 }}
               />
             )}
-            {pgNum === 3 && (
+            {/* {pgNum === 3 && (
               <AddOns
                 billing={plan?.billing || "monthly"}
                 initial={addOns}
@@ -56,14 +57,15 @@ export const MultiStepForm = () => {
               />
             )}
             {pgNum === 4 && (
-                <Summary
+              <Summary
                 info={info}
-              plan={plan}
-              addons={addOns}
-              onBack={prevPage}
-              onConfirm={nextPage}
-                />
+                plan={plan}
+                addons={addOns}
+                onBack={prevPage}
+                onConfirm={nextPage}
+              />
             )}
+            {pgNum === 5 && <Thank />} */}
           </div>
         </section>
       </div>
