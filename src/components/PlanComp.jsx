@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { SiApplearcade } from "react-icons/si";
+import { FaGamepad } from "react-icons/fa6";
+import { IoGameController } from "react-icons/io5";
 
 export const Plan = ({ onNext, onBack, initial }) => {
   const [billing, setBilling] = useState(initial?.billing || "monthly");
   const [plan, setPlan] = useState(initial?.plan || "arcade");
-  
+
   const prices = {
     monthly: { arcade: 9, advanced: 12, pro: 15 },
     yearly: { arcade: 90, advanced: 120, pro: 150 },
   };
-  //todo:  plan k cards 
+  //todo:  plan k cards
   const PlanCard = ({ id, label, icon }) => {
     const active = plan === id;
     return (
@@ -22,8 +25,18 @@ export const Plan = ({ onNext, onBack, initial }) => {
               : "border-[hsl(229,24%,87%)] hover:border-[hsl(243,100%,62%)]"
           }`}
       >
-        <div className="w-10 h-10 rounded-md bg-[hsl(206,94%,87%)] flex items-center justify-center">
-          <span className="text-[hsl(213,96%,18%)]">{icon}</span>
+        <div className="w-10 h-10 rounded-full bg-[hsl(206,94%,87%)] flex items-center justify-center">
+          <span
+            className={`w-full h-full rounded-full flex items-center justify-center text-[hsl(36,31%,94%)] ${
+              id === "arcade"
+                ? "bg-[hsl(40,95%,49%)]"
+                : id === "advanced"
+                ? " bg-[hsl(342,88%,68%)]"
+                : " bg-[hsl(262,95%,49%)]"
+            }`}
+          >
+            {icon}
+          </span>
         </div>
         <div>
           <div className="font-bold text-[hsl(213,96%,18%)] capitalize">
@@ -52,11 +65,11 @@ export const Plan = ({ onNext, onBack, initial }) => {
         You have the option of monthly or yearly billing.
       </p>
 
-      {/* Mobile: stacked; Desktop: 3 columns */}
+      {/* Mobile view main : stacked(column vise); Desktop: 3 boxes/columns */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-        <PlanCard id="arcade" label="Arcade" icon="🕹️" />
-        <PlanCard id="advanced" label="Advanced" icon="🎮" />
-        <PlanCard id="pro" label="Pro" icon="🎮" />
+        <PlanCard id="arcade" label="Arcade" icon={<SiApplearcade />} />
+        <PlanCard id="advanced" label="Advanced" icon={<FaGamepad />} />
+        <PlanCard id="pro" label="Pro" icon={<IoGameController />} />
       </div>
 
       {/* Toggle wala check button agr to monthly hoga to ye  */}

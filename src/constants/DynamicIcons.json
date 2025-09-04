@@ -1,0 +1,17 @@
+[
+  {
+    "id": "arcade",
+    "label": "Arcade",
+    "icon": "SiApplearcade"
+  },
+  {
+    "id": "advance",
+    "label": "Adavance",
+    "icon": "FaGamepad"
+  },
+  {
+    "id": "pro",
+    "label": "Pro",
+    "icon": "IoGameController"
+  }
+]

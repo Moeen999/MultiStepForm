@@ -22,7 +22,7 @@
                     className={`w-[30px] h-[30px] rounded-full border flex items-center justify-center text-sm transition
                     ${
                         currPage === number
-                        ? "bg-[hsl(228,100%,84%)] text-black border-[hsl(228,100%,84%)]"
+                        ? "bg-[hsl(227,70%,85%)] text-black border-[hsl(228,100%,84%)]"
                         : "text-[hsl(228,100%,84%)] border-[hsl(228,100%,84%)]"
                     }`}
                 >

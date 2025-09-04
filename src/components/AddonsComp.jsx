@@ -77,7 +77,11 @@ export const AddOns = ({ billing, onNext, onBack, initial }) => {
             <label
               key={a.id}
               className={`w-full border rounded-lg p-3 flex items-center justify-between gap-4 cursor-pointer transition
-                ${active ? "border-[hsl(243,100%,62%)] bg-[hsl(231,100%,99%)]" : "border-[hsl(229,24%,87%)] hover:border-[hsl(243,100%,62%)]"}`}
+                ${
+                  active
+                    ? "border-[hsl(243,100%,62%)] bg-[hsl(231,100%,99%)]"
+                    : "border-[hsl(229,24%,87%)] hover:border-[hsl(243,100%,62%)]"
+                }`}
             >
               <div className="flex items-center gap-4">
                 <input
@@ -87,8 +91,12 @@ export const AddOns = ({ billing, onNext, onBack, initial }) => {
                   className="w-4 h-4 accent-[hsl(243,100%,62%)]"
                 />
                 <div>
-                  <div className="font-bold text-[hsl(213,96%,18%)]">{a.name}</div>
-                  <div className="text-[hsl(231,11%,63%)] text-sm">{a.desc}</div>
+                  <div className="font-bold text-[hsl(213,96%,18%)]">
+                    {a.name}
+                  </div>
+                  <div className="text-[hsl(231,11%,63%)] text-sm">
+                    {a.desc}
+                  </div>
                 </div>
               </div>
               <div className="text-[hsl(243,100%,62%)] text-sm">
@@ -100,7 +108,10 @@ export const AddOns = ({ billing, onNext, onBack, initial }) => {
       </div>
 
       <div className="flex justify-between mt-8">
-        <button onClick={onBack} className="text-[hsl(231,11%,63%)] hover:text-[hsl(213,96%,18%)]">
+        <button
+          onClick={onBack}
+          className="text-[hsl(231,11%,63%)] hover:text-[hsl(213,96%,18%)]"
+        >
           Go Back
         </button>
         <button
@@ -111,5 +122,5 @@ export const AddOns = ({ billing, onNext, onBack, initial }) => {
         </button>
       </div>
     </div>
-  ); 
+  );
 };
