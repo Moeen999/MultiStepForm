@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+li{
+    list-style-type: none;
+}
+body p{
+    font-size: 16px;
+}
