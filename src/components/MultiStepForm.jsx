@@ -45,7 +45,7 @@ export const MultiStepForm = () => {
                 }}
               />
             )}
-            {/* {pgNum === 3 && (
+             {pgNum === 3 && (
               <AddOns
                 billing={plan?.billing || "monthly"}
                 initial={addOns}
@@ -65,7 +65,7 @@ export const MultiStepForm = () => {
                 onConfirm={nextPage}
               />
             )}
-            {pgNum === 5 && <Thank />} */}
+            {pgNum === 5 && <Thank />}  
           </div>
         </section>
       </div>

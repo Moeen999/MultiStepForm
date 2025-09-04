@@ -15,16 +15,17 @@ export const Info = ({ onNext }) => {
     e.preventDefault();
     const newErrors = {};
     for (const key in formData) {
-      if (!formData[key].trim()) {
+      if (!formData[key].trim() || formData[key].length < 3) {
         newErrors[key] = "This field is required";
       }
     }
-
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
       onNext(formData);
     }
+  console.log(formData)
+
   };
   return (
     <div className="bg-white rounded-lg p-6 shadow-sm">
@@ -49,6 +50,7 @@ export const Info = ({ onNext }) => {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            placeholder="e.g. Stephen King"
             className={`mt-1 block w-full rounded-md border px-3 py-2 text-sm outline-none
               ${
                 errors.name
@@ -73,6 +75,7 @@ export const Info = ({ onNext }) => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            placeholder="e.g. stephenking@lorem.com"
             className={`mt-1 block w-full rounded-md border px-3 py-2 text-sm outline-none
               ${
                 errors.email
@@ -93,10 +96,11 @@ export const Info = ({ onNext }) => {
             </span>
           )}
           <input
-            type="text"
+            type="number"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
+            placeholder="e.g. +123 4567 890"
             className={`mt-1 block w-full rounded-md border px-3 py-2 text-sm outline-none
               ${
                 errors.phone
