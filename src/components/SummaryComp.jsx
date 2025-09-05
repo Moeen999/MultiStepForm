@@ -1,11 +1,13 @@
 export const Summary = ({  plan, addons, onBack, onConfirm }) => {
-  const basePlan =
-    plan.billing === "monthly"
-      ? { arcade: 9, advanced: 12, pro: 15 }[plan.plan]
-      : { arcade: 90, advanced: 120, pro: 150 }[plan.plan];
-  const addSum = addons.reduce((s, a) => s + a.price, 0);
-  const total = basePlan + addSum;
-  const suffix = plan.billing === "monthly" ? "mo" : "yr";
+const prices = {
+  monthly: { arcade: 9, advanced: 12, pro: 15 },
+  yearly: { arcade: 90, advanced: 120, pro: 150 },
+};
+
+const basePlan = prices[plan.billing][plan.plan];
+const addSum = addons.reduce((sum, addon) => sum + addon.price, 0);
+const total = basePlan + addSum;
+const suffix = plan.billing === "monthly" ? "mo" : "yr";
   const label = {
     arcade: "Arcade",
     advanced: "Advanced",
