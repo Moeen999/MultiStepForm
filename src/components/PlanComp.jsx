@@ -6,7 +6,6 @@ import { IoGameController } from "react-icons/io5";
 export const Plan = ({ onNext, onBack, initial }) => {
   const [billing, setBilling] = useState(initial?.billing || "monthly");
   const [plan, setPlan] = useState(initial?.plan || "arcade");
-
   const prices = {
     monthly: { arcade: 9, advanced: 12, pro: 15 },
     yearly: { arcade: 90, advanced: 120, pro: 150 },
@@ -32,7 +31,7 @@ export const Plan = ({ onNext, onBack, initial }) => {
                 ? "bg-[hsl(40,95%,49%)]"
                 : id === "advanced"
                 ? " bg-[hsl(342,88%,68%)]"
-                : " bg-[hsl(262,95%,49%)]"
+                : " bg-[hsl(253,95%,49%)]"
             }`}
           >
             {icon}
@@ -90,7 +89,7 @@ export const Plan = ({ onNext, onBack, initial }) => {
           className="w-12 h-6 rounded-full bg-[hsl(213,96%,18%)] relative"
         >
           <span
-            className={`absolute top-1 w-4 h-4 bg-white rounded-full transition ${
+            className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${
               billing === "monthly" ? "left-1" : "left-7"
             }`}
           />

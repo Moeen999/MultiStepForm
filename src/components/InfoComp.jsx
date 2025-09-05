@@ -1,15 +1,15 @@
 import { useForm } from "react-hook-form";
+import { Input } from "./Input";
 
-export const Info = ({ onNext }) => {
+export const Info = ({ onNext, defaultValues }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues });
 
   const handleFormSubmit = (data) => {
     onNext(data);
-    // console.log(data)
   };
 
   return (
@@ -22,86 +22,49 @@ export const Info = ({ onNext }) => {
       </p>
 
       <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
-        {/* Name */}
-        <div className="relative">
-          <label className="block text-sm font-medium text-gray-600">
-            Name
-          </label>
-          {errors.name && (
-            <span className="absolute right-0 top-0 text-xs text-red-500">
-              {errors.name.message}
-            </span>
-          )}
-          <input
-            type="text"
-            placeholder="e.g. Stephen King"
-            {...register("name", {
-              required: "This field is required",
-              minLength: { value: 3, message: "Minimum 3 characters" },
-            })}
-            className={`mt-1 block w-full rounded-md border px-3 py-2 text-sm outline-none
-              ${
-                errors.name
-                  ? "border-red-500 focus:ring-red-500"
-                  : "border-gray-300 focus:ring-indigo-500"
-              }`}
-          />
-        </div>
+        <Input
+          label="Name"
+          name="name"
+          placeholder="e.g. Stephen King"
+          register={register}
+          rules={{
+            required: "This field is required",
+            minLength: { value: 3, message: "Minimum 3 characters" },
+          }}
+          error={errors.name}
+        />
 
-        {/* Email */}
-        <div className="relative">
-          <label className="block text-sm font-medium text-gray-600">
-            Email Address
-          </label>
-          {errors.email && (
-            <span className="absolute right-0 top-0 text-xs text-red-500">
-              {errors.email.message}
-            </span>
-          )}
-          <input
-            type="email"
-            placeholder="e.g. stephenking@lorem.com"
-            {...register("email", {
-              required: "This field is required",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, 
-                message: "Enter a valid email",
-              },
-            })}
-            className={`mt-1 block w-full rounded-md border px-3 py-2 text-sm outline-none
-              ${
-                errors.email
-                  ? "border-red-500 focus:ring-red-500"
-                  : "border-gray-300 focus:ring-indigo-500"
-              }`}
-          />
-        </div>
+        <Input
+          label="Email Address"
+          name="email"
+          type="email"
+          placeholder="e.g. stephenking@lorem.com"
+          register={register}
+          rules={{
+            required: "This field is required",
+            pattern: {
+              message: "Enter a valid email",
+            },
+          }}
+          error={errors.email}
+        />
 
-        {/* Phone */}
-        <div className="relative">
-          <label className="block text-sm font-medium text-gray-600">
-            Phone Number
-          </label>
-          {errors.phone && (
-            <span className="absolute right-0 top-0 text-xs text-red-500">
-              {errors.phone.message}
-            </span>
-          )}
-          <input
-            type="tel"
-            placeholder="e.g. +123 4567 890"
-            {...register("phone", {
-              required: "This field is required",
-              minLength: { value: 6, message: "Too short" },
-            })}
-            className={`mt-1 block w-full rounded-md border px-3 py-2 text-sm outline-none
-              ${
-                errors.phone
-                  ? "border-red-500 focus:ring-red-500"
-                  : "border-gray-300 focus:ring-indigo-500"
-              }`}
-          />
-        </div>
+        <Input
+          label="Phone Number"
+          name="phone"
+          type="tel"
+          placeholder="e.g. +123 4567 890"
+          register={register}
+          rules={{
+            required: "This field is required",
+            minLength: { value: 6, message: "Too short" },
+            pattern: {
+              value : /^[0-9+\s-]+$/,
+              message:"Enter a valid Phone Number"
+            },
+          }}
+          error={errors.phone}
+        />
 
         <div className="flex justify-end">
           <button

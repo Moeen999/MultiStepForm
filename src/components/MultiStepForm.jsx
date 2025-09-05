@@ -29,6 +29,7 @@ export const MultiStepForm = () => {
           <div className="relative z-10 md:flex-1">
             {pgNum === 1 && (
               <Info
+              defaultValues={info}
                 onNext={(data) => {
                   setInfo(data);
                   nextPage();
