@@ -7,6 +7,7 @@ export const Input = ({
   rules,
   error,
 }) => {
+  
   return (
     <div className="relative">
       <label className="block text-sm font-medium text-gray-600">{label}</label>
